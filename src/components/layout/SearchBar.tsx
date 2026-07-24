@@ -41,7 +41,7 @@ export default function SearchBar() {
 
         {/* input */}
         <Input
-          placeholder="Search products..."
+          placeholder="Search..."
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           className="pl-10 pr-4 h-10 rounded-full border-gray-300 focus:border-black focus:ring-1 focus:ring-black transition"

@@ -5,21 +5,36 @@ type StarRatingProps = {
 };
 
 export default function StarRating({ rating }: StarRatingProps) {
-  const fullStars = Math.floor(rating);
-
   return (
     <div className="flex items-center gap-1">
-      {[1, 2, 3, 4, 5].map((star) => (
-        <Star
-          key={star}
-          className={`w-4 h-4 ${
-            star <= fullStars
-              ? "fill-yellow-500 text-yellow-500"
-              : "text-gray-300"
-          }`}
-        />
-      ))}
-      <span className="text-sm text-gray-600 ml-1">{rating}</span>
+      {[1, 2, 3, 4, 5].map((star) => {
+        const isFull = rating >= star;
+        const isHalf = rating >= star - 0.5 && rating < star;
+
+        return (
+          <div key={star} className="relative">
+            
+            {/* empty star */}
+            <Star className="w-4 h-4 text-gray-300" />
+
+            {/* full star */}
+            {isFull && (
+              <Star className="w-4 h-4 fill-yellow-500 text-yellow-500 absolute top-0 left-0" />
+            )}
+
+            {/* half star */}
+            {isHalf && (
+              <div className="absolute top-0 left-0 w-1/2 overflow-hidden">
+                <Star className="w-4 h-4 fill-yellow-500 text-yellow-500" />
+              </div>
+            )}
+          </div>
+        );
+      })}
+
+      <span className="text-xs text-gray-500 ml-1">
+        {rating.toFixed(1)}
+      </span>
     </div>
   );
 }
