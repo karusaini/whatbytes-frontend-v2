@@ -8,37 +8,56 @@ import { CartContext } from "@/context/CartContext";
 import StarRating from "@/components/common/StarRating";
 
 export default function ProductCard({ product }: any) {
-  const { addToCart } = useContext(CartContext);
+
+  const cart = useContext(CartContext);
+
+  if (!cart) {
+    throw new Error("CartContext not found");
+  }
+
+  const { addToCart } = cart;
 
   return (
-    <div className="bg-white rounded-lg border p-4 hover:shadow-md transition flex flex-col">
+    <div className="group bg-white rounded-xl border p-4 hover:shadow-lg transition-all duration-300 flex flex-col">
+      
       <Link
         href={`/product/${product.id}`}
         className="flex flex-col items-center text-center flex-1"
       >
-        <img
-          src={product.image}
-          alt={product.title}
-          className="rounded-md object-contain w-full h-55 md:h-65"
-        />
+        {/* IMAGE */}
+        <div className="relative w-full h-56 flex items-center justify-center overflow-hidden rounded-md">
+          <Image
+            src={product.image}
+            alt={product.title}
+            fill
+            className="object-contain transition-transform duration-300 group-hover:scale-105"
+          />
+        </div>
 
-        <h3 className="mt-3 font-medium line-clamp-1">{product.title}</h3>
+        {/* TITLE */}
+        <h3 className="mt-4 font-medium text-sm line-clamp-2 text-gray-900">
+          {product.title}
+        </h3>
 
-        <div className="mt-1">
+        {/* RATING */}
+        <div className="mt-2">
           <StarRating rating={product.rating} />
         </div>
 
-        <p className="text-sm text-gray-500 mt-2 line-clamp-2">
+        {/* DESCRIPTION */}
+        <p className="text-xs text-gray-500 mt-2 line-clamp-2">
           {product.description}
         </p>
       </Link>
 
-      <p className="mt-3 font-semibold text-lg text-center">
+      {/* PRICE */}
+      <p className="mt-4 font-semibold text-lg text-center text-gray-900">
         ₹{product.price.toLocaleString()}
       </p>
 
+      {/* BUTTON */}
       <Button
-        className="w-full mt-3 cursor-pointer"
+        className="w-full mt-3 rounded-lg bg-black hover:bg-gray-800 text-white transition cursor-pointer"
         onClick={() => addToCart({ ...product, quantity: 1 })}
       >
         Add to Cart

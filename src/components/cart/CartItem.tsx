@@ -22,24 +22,29 @@ export default function CartItem({
   onUpdateQuantity,
 }: CartItemProps) {
   return (
-    <div className="flex gap-4 border rounded-lg p-4 items-center">
+    <div className="flex flex-col sm:flex-row gap-4 border rounded-xl p-4 items-center sm:items-start bg-white shadow-sm">
+
+      {/* IMAGE */}
       <Image
         src={item.image}
         alt={item.title}
-        width={80}
-        height={80}
+        width={90}
+        height={90}
         className="rounded-md object-cover"
       />
 
-      <div className="flex-1">
-        <h3 className="font-medium">{item.title}</h3>
-        <p className="text-gray-600">₹{item.price}</p>
+      {/* INFO */}
+      <div className="flex-1 text-center sm:text-left">
+        <h3 className="font-medium text-base">{item.title}</h3>
+        <p className="text-gray-600 mt-1">₹{item.price}</p>
       </div>
 
+      {/* QUANTITY */}
       <div className="flex items-center gap-2">
         <Button
           size="sm"
           variant="outline"
+          className="w-8 h-8"
           onClick={() =>
             onUpdateQuantity(item.id, Math.max(1, item.quantity - 1))
           }
@@ -47,25 +52,30 @@ export default function CartItem({
           -
         </Button>
 
-        <span className="w-6 text-center">{item.quantity}</span>
+        <span className="w-8 text-center font-medium">
+          {item.quantity}
+        </span>
 
         <Button
           size="sm"
           variant="outline"
+          className="w-8 h-8"
           onClick={() => onUpdateQuantity(item.id, item.quantity + 1)}
         >
           +
         </Button>
       </div>
 
+      {/* REMOVE */}
       <Button
         size="icon"
-        variant="destructive"
+        variant="ghost"
         onClick={() => onRemove(item.id)}
-        className="cursor-pointer"
+        className="text-red-500 hover:bg-red-50 hover:text-red-600 transition"
       >
         <Trash2 className="w-4 h-4" />
       </Button>
+
     </div>
   );
 }
