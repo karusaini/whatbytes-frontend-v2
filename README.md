@@ -1,4 +1,4 @@
-# 🛒 WhatBytes - Product Listing App
+#  WhatBytes - Product Listing App
 
 A modern and responsive product listing web app built using **Next.js 16**, **Tailwind CSS**, and **ShadCN UI**.
 
