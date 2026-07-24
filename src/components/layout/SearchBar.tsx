@@ -3,36 +3,50 @@
 import { useState, useEffect } from "react";
 import { Input } from "@/components/ui/input";
 import { Search } from "lucide-react";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useRouter } from "next/navigation";
 
 export default function SearchBar() {
   const router = useRouter();
-  const searchParams = useSearchParams();
   const [query, setQuery] = useState("");
 
-  // initialize query on client
+  // ✅ Initialize query from URL
   useEffect(() => {
-    setQuery(searchParams.get("search") || "");
-  }, [searchParams]);
+    const params = new URLSearchParams(window.location.search);
+    setQuery(params.get("search") || "");
+  }, []);
 
-  // update URL param as user types
+  // ✅ Update URL with debounce (no dependency error)
   useEffect(() => {
-    const params = new URLSearchParams(searchParams.toString());
-    if (query) params.set("search", query);
-    else params.delete("search");
+    const timeout = setTimeout(() => {
+      const params = new URLSearchParams(window.location.search);
 
-    router.replace(`/?${params.toString()}`);
-  }, [query]);
+      if (query) {
+        params.set("search", query);
+      } else {
+        params.delete("search");
+      }
+
+      router.replace(`/?${params.toString()}`);
+    }, 300);
+
+    return () => clearTimeout(timeout);
+  }, [query, router]);
 
   return (
-    <div className="flex-1 max-w-md relative">
-      <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 w-4 h-4" />
-      <Input
-        placeholder="Search products..."
-        className="pl-9"
-        value={query}
-        onChange={(e) => setQuery(e.target.value)}
-      />
+    <div className="w-full flex justify-center">
+      <div className="relative w-full max-w-lg">
+        
+        {/* icon */}
+        <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 w-4 h-4" />
+
+        {/* input */}
+        <Input
+          placeholder="Search products..."
+          value={query}
+          onChange={(e) => setQuery(e.target.value)}
+          className="pl-10 pr-4 h-10 rounded-full border-gray-300 focus:border-black focus:ring-1 focus:ring-black transition"
+        />
+      </div>
     </div>
   );
 }
