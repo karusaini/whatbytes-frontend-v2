@@ -1,152 +1,115 @@
-# WhatBytes – Frontend Assignment 🚀
+# 🛒 WhatBytes - Product Listing App
 
-A modern e-commerce frontend application built using **Next.js (App Router)**, **Tailwind CSS**, and **ShadCN UI** as part of the WhatBytes Frontend Developer Intern assignment.
-
----
-
-## 🔗 Live Demo
-
-👉 **Deployed on Vercel:**  
-https://whatbytes-frontend-gamma.vercel.app
-
-_(Replace this with your actual Vercel URL)_
+A modern and responsive product listing web app built using **Next.js 16**, **Tailwind CSS**, and **ShadCN UI**.
 
 ---
 
-## 📂 GitHub Repository
+##  Live Demo
+👉 https://whatbytes-frontend-assignment-drab.vercel.app
 
-👉https://github.com/karusaini/whatbytes-frontend
+##  Github repo
+👉 https://github.com/karusaini/whatbytes-frontend-assignment
 
 ---
 
-## 🛠 Tech Stack
+##  Features
+
+-  Product listing with clean UI
+-  Search functionality (URL-based filtering)
+-  Product detail page
+-  Ratings & customer reviews
+-  Add to cart with quantity control
+-  Cart state management using Context API
+-  Fully responsive design
+-  Modern UI (no clutter, minimal design)
+
+---
+
+##  Tech Stack
 
 - **Next.js 16 (App Router)**
-- **React**
+- **React (Client Components)**
 - **Tailwind CSS**
 - **ShadCN UI**
-- **Lucide-react (icons)**
-- **Context API (Cart state management)**
-- **Vercel (Deployment)**
+- **Lucide Icons**
+- **Context API (State Management)**
 
 ---
 
-## ✨ Features Implemented
+## 📂 Folder Structure
 
-### 🏠 Home Page (`/`)
-
-- Responsive header with:
-  - Logo
-  - Search bar (URL-based filtering)
-  - Cart icon with badge
-  - User avatar
-- Product listing grid:
-  - Responsive (3 columns desktop, 2 tablet, 1 mobile)
-  - Product image, title, price
-  - Rating stars
-  - Short description
-  - Add to Cart button
-- Sidebar filters:
-  - Category filter
-  - Price range filter
-- URL-based search & filters
-- Conditional UI for “No products found”
-
----
-
-### 📦 Product Detail Page (`/product/[id]`)
-
-- Large product image / carousel
-- Product title
-- Price
-- Description
-- Category
-- Rating
-- Add to Cart button
-- Reviews section
-- Back navigation
-- Fully responsive layout
-
----
-
-### 🛒 Cart Page (`/cart`)
-
-- List of added products
-- Quantity increase/decrease
-- Remove item option
-- Price summary
-- Cart state persisted using **localStorage**
-
----
-
-## 🧠 Logic & Architecture
-
-- Client-side routing using Next.js App Router
-- Dynamic routing for product detail pages
-- Cart state managed using **React Context API**
-- Search & filters synced via **URL query parameters**
-- Clean, modular folder structure
-- Feature-based commits (no single commit dump)
-
----
-
-## 📁 Folder Structure
-
-```txt
 src/
-├── app/
-│   ├── page.tsx
-│   ├── cart/
-│   ├── product/[id]/
-│   └── layout.tsx
-│
-├── components/
-│   ├── layout/
-│   │   ├── Header.tsx
-│   │   └── Footer.tsx
-│   ├── product/
-│   └── ui/
-│
-├── context/
-│   └── CartContext.tsx
-│
-├── data/
-│   └── products.ts
-│
-├── lib/
-│   └── filters.ts
-│
-└── styles/
+┣ app/
+┃ ┣ cart/
+┃ ┃ ┗ page.tsx
+┃ ┗ product/
+┃   ┗ [id]/
+┃     ┗ page.tsx
+┃
+┣ components/
+┃ ┣ cart/
+┃ ┣ common/
+┃ ┣ home/
+┃ ┣ layout/
+┃ ┗ product/
+┃
+┣ context/
+┃ ┗ CartContext.tsx
+┃
+┣ data/
+┃ ┗ products.ts
+┃
+┣ lib/
 
 
 
+---
 
- ⚙️ Setup Instructions
+## Installation & Setup
 
-Clone the repository
+```bash
+# Clone repo
+git clone https://github.com/karusaini/whatbytes-frontend-assignment.git
 
-git clone https://github.com/karusaini/whatbytes-frontend.git
+# Go to project
+cd your-repo
 
-
-Install dependencies
-
+# Install dependencies
 npm install
 
-
-Run the development server
-
+# Run dev server
 npm run dev
 
 
-Build for production
+Key Implementations:
 
-npm run build
+1. Search Functionality
+Uses URL query params (?search=)
+Debounced input for better UX
 
+2. Cart System
+Built using React Context API
+Supports:
+Add to cart
+Quantity management
+Global state
 
+3. Responsive Design
+Mobile-first approach
+Grid-based layout
+Clean spacing and typography
 
-Author
+UI Highlights:
 
+Centered search bar
+Minimal header with cart badge
+Clean product cards
+Modern footer with social icons
+
+🙌 Author
 Karina Saini
-Frontend Developer
-GitHub: https://github.com/karusaini
-```
+
+
+Show Your Support
+
+If you like this project, give it a ⭐ on GitHub!
