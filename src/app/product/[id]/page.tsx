@@ -14,23 +14,32 @@ import { Minus, Plus } from "lucide-react";
 
 export default function ProductDetailPage() {
   const params = useParams<{ id: string }>();
+  const router = useRouter();
+
+  const context = useContext(CartContext);
+  if (!context) return null;
+
+  const { addToCart } = context;
 
   const product = products.find((item) => item.id === params.id);
-
-  const router = useRouter();
-  const { addToCart } = useContext(CartContext);
 
   const [quantity, setQuantity] = useState(1);
 
   if (!product) {
-    return <div className="p-10 text-center">Product not found</div>;
+    return (
+      <div className="p-10 text-center text-gray-500">
+        Product not found
+      </div>
+    );
   }
 
   const increase = () => setQuantity((prev) => prev + 1);
   const decrease = () => setQuantity((prev) => Math.max(1, prev - 1));
 
   return (
-    <div className="max-w-6xl mx-auto px-4 py-8">
+    <div className="max-w-6xl mx-auto px-4 py-10">
+      
+      {/* Back Button */}
       <Button
         variant="outline"
         className="mb-6"
@@ -39,57 +48,83 @@ export default function ProductDetailPage() {
         ← Back to Home
       </Button>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-start">
-        <div className="bg-white border rounded-lg p-4 flex justify-center">
+      {/* Layout */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-start">
+        
+        {/* Image */}
+        <div className="bg-white border rounded-xl p-6 flex justify-center">
           <Image
             src={product.image}
             alt={product.title}
             width={500}
             height={500}
-            className="rounded-lg object-contain max-h-150 w-full"
+            className="rounded-lg object-contain max-h-[400px] w-full"
           />
         </div>
 
+        {/* Info */}
         <div className="flex flex-col">
-          <h1 className="text-2xl md:text-3xl font-bold">{product.title}</h1>
+          
+          <h1 className="text-2xl md:text-3xl font-bold text-gray-900">
+            {product.title}
+          </h1>
 
-          <div className="mt-2 flex items-center gap-1">
+          {/* Rating */}
+          <div className="mt-2 flex items-center gap-2">
             <StarRating rating={product.rating} />
-            <span className="text-gray-500 text-sm"></span>
+            <span className="text-sm text-gray-500">
+              ({product.rating})
+            </span>
           </div>
 
-          <p className="text-gray-600 mt-4 text-sm md:text-base">
+          {/* Description */}
+          <p className="text-gray-600 mt-4 text-sm md:text-base leading-relaxed">
             {product.description}
           </p>
 
-          <p className="text-xl md:text-2xl font-semibold mt-6">
+          {/* Price */}
+          <p className="text-2xl font-semibold mt-6 text-black">
             ₹{product.price.toLocaleString()}
           </p>
 
+          {/* Category */}
           <p className="text-sm text-gray-500 mt-2 capitalize">
             Category: {product.category}
           </p>
 
-          <div className="flex items-center gap-2 mt-4">
+          {/* Quantity */}
+          <div className="flex items-center gap-3 mt-5">
             <Button size="sm" variant="outline" onClick={decrease}>
               <Minus className="w-4 h-4" />
             </Button>
-            <span className="w-8 text-center">{quantity}</span>
+
+            <span className="w-8 text-center font-medium">
+              {quantity}
+            </span>
+
             <Button size="sm" variant="outline" onClick={increase}>
               <Plus className="w-4 h-4" />
             </Button>
           </div>
 
+          {/* Add to Cart */}
           <Button
-            className="mt-6 w-full md:w-1/2 cursor-pointer"
-            onClick={() => addToCart({ ...product, quantity })}
+            className="mt-6 w-full md:w-1/2 bg-black text-white hover:bg-gray-900 transition"
+            onClick={() =>
+              addToCart({
+                ...product,
+                quantity,
+              })
+            }
           >
             Add to Cart
           </Button>
+
         </div>
       </div>
 
-      <div className="mt-10">
+      {/* Reviews */}
+      <div className="mt-12">
         <Reviews />
       </div>
     </div>
