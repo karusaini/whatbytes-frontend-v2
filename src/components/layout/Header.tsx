@@ -44,20 +44,25 @@ export default function Header() {
 
         
         <div className="flex justify-end items-center gap-4">
-          <Link href="/cart" className="relative">
-            <ShoppingCart className="w-6 h-6 text-gray-700 hover:text-black transition" />
-            {cartCount > 0 && (
-              <Badge className="absolute -top-2 -right-2 h-5 w-5 flex items-center justify-center text-xs bg-black text-white rounded-full">
-                {cartCount}
-              </Badge>
-            )}
-          </Link>
+  <Link href="/cart" className="relative">
+    
+    
+    <div id="cart-icon" className="relative">
+      <ShoppingCart className="w-6 h-6 text-gray-700 hover:text-black transition" />
+      
+      {cartCount > 0 && (
+        <Badge className="absolute -top-2 -right-2 h-5 w-5 flex items-center justify-center text-xs bg-black text-white rounded-full">
+          {cartCount}
+        </Badge>
+      )}
+    </div>
 
-          <Avatar>
-            <AvatarFallback>U</AvatarFallback>
-          </Avatar>
-        </div>
+  </Link>
 
+  <Avatar>
+    <AvatarFallback>U</AvatarFallback>
+  </Avatar>
+</div>
       </div>
     </header>
   );
