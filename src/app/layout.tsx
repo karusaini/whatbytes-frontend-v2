@@ -4,7 +4,7 @@ import Footer from "@/components/layout/Footer";
 
 export const metadata = {
   title: "WhatBytes",
-  description: "Frontend Assignment - Product Listing App",
+  description: "Modern product listing app with search, product details, and cart functionality",
   icons: {
     icon: "/favicon.ico",
   },
