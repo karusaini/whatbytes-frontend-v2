@@ -24,7 +24,7 @@ export default function CartItem({
   return (
     <div className="flex flex-col sm:flex-row gap-4 border rounded-xl p-4 items-center sm:items-start bg-white shadow-sm">
 
-      {/* IMAGE */}
+      
       <Image
         src={item.image}
         alt={item.title}
@@ -33,13 +33,13 @@ export default function CartItem({
         className="rounded-md object-cover"
       />
 
-      {/* INFO */}
+     
       <div className="flex-1 text-center sm:text-left">
         <h3 className="font-medium text-base">{item.title}</h3>
         <p className="text-gray-600 mt-1">₹{item.price}</p>
       </div>
 
-      {/* QUANTITY */}
+      
       <div className="flex items-center gap-2">
         <Button
           size="sm"
@@ -66,7 +66,7 @@ export default function CartItem({
         </Button>
       </div>
 
-      {/* REMOVE */}
+      
       <Button
         size="icon"
         variant="ghost"

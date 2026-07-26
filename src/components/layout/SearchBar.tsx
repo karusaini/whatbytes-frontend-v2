@@ -9,13 +9,13 @@ export default function SearchBar() {
   const router = useRouter();
   const [query, setQuery] = useState("");
 
-  // ✅ Initialize query from URL
+  
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
     setQuery(params.get("search") || "");
   }, []);
 
-  // ✅ Update URL with debounce (no dependency error)
+  
   useEffect(() => {
     const timeout = setTimeout(() => {
       const params = new URLSearchParams(window.location.search);
@@ -36,10 +36,10 @@ export default function SearchBar() {
     <div className="w-full flex justify-center">
       <div className="relative w-full max-w-lg">
         
-        {/* icon */}
+       
         <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 w-4 h-4" />
 
-        {/* input */}
+        
         <Input
           placeholder="Search..."
           value={query}

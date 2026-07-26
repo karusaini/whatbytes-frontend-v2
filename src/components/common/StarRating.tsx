@@ -14,15 +14,15 @@ export default function StarRating({ rating }: StarRatingProps) {
         return (
           <div key={star} className="relative">
             
-            {/* empty star */}
+            
             <Star className="w-4 h-4 text-gray-300" />
 
-            {/* full star */}
+           
             {isFull && (
               <Star className="w-4 h-4 fill-yellow-500 text-yellow-500 absolute top-0 left-0" />
             )}
 
-            {/* half star */}
+            
             {isHalf && (
               <div className="absolute top-0 left-0 w-1/2 overflow-hidden">
                 <Star className="w-4 h-4 fill-yellow-500 text-yellow-500" />

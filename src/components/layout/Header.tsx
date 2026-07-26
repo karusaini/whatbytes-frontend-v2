@@ -26,14 +26,14 @@ export default function Header() {
     <header className="sticky top-0 z-50 bg-white border-b shadow-sm">
       <div className="max-w-7xl mx-auto px-4 py-3 grid grid-cols-3 items-center">
 
-        {/* LEFT */}
+       
         <div className="flex justify-start">
           <Link href="/" className="text-lg md:text-xl font-bold">
             WhatBytes
           </Link>
         </div>
 
-        {/* CENTER (REAL CENTER 🔥) */}
+       
         <div className="flex justify-center">
           <div className="w-full max-w-md">
             <Suspense fallback={null}>
@@ -42,7 +42,7 @@ export default function Header() {
           </div>
         </div>
 
-        {/* RIGHT */}
+        
         <div className="flex justify-end items-center gap-4">
           <Link href="/cart" className="relative">
             <ShoppingCart className="w-6 h-6 text-gray-700 hover:text-black transition" />

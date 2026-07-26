@@ -25,7 +25,7 @@ export default function ProductFilters() {
   return (
     <div className="space-y-6">
 
-      {/* CATEGORY */}
+      
       <div className="bg-white rounded-xl border p-4 shadow-sm">
         <div className="flex justify-between items-center mb-3">
           <h3 className="font-semibold text-sm">Category</h3>
@@ -63,7 +63,7 @@ export default function ProductFilters() {
         </div>
       </div>
 
-      {/* PRICE */}
+     
       <div className="bg-white rounded-xl border p-4 shadow-sm">
         <h3 className="font-semibold text-sm mb-3">Price Range</h3>
 
@@ -82,7 +82,7 @@ export default function ProductFilters() {
           <span>₹{maxPrice.toLocaleString()}</span>
         </div>
 
-        {/* CLEAR PRICE */}
+        
         <Button
           variant="outline"
           className="w-full mt-4 text-xs"

@@ -5,10 +5,10 @@ A modern and responsive product listing web app built using **Next.js 16**, **Ta
 ---
 
 ##  Live Demo
-👉 https://whatbytes-frontend-assignment-drab.vercel.app
+https://whatbytes-frontend-assignment-drab.vercel.app
 
 ##  Github repo
-👉 https://github.com/karusaini/whatbytes-frontend-assignment
+ https://github.com/karusaini/whatbytes-frontend-assignment
 
 ---
 
@@ -36,7 +36,7 @@ A modern and responsive product listing web app built using **Next.js 16**, **Ta
 
 ---
 
-## 📂 Folder Structure
+## Folder Structure
 
 src/
 ┣ app/

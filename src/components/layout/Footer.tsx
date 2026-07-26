@@ -9,7 +9,7 @@ export default function Footer() {
       
       <div className="max-w-7xl mx-auto px-4 py-12 grid gap-10 md:grid-cols-3">
         
-        {/* Brand */}
+        
         <div className="text-center md:text-left space-y-3">
           <h2 className="text-2xl font-bold text-black">WhatBytes</h2>
           <p className="text-sm leading-relaxed text-gray-500">
@@ -17,7 +17,7 @@ export default function Footer() {
           </p>
         </div>
 
-        {/* Links */}
+        
         <div className="text-center md:text-left">
           <h3 className="text-lg font-semibold text-black mb-3">
             Quick Links
@@ -42,7 +42,7 @@ export default function Footer() {
           </ul>
         </div>
 
-        {/* Social */}
+        
         <div className="text-center md:text-left">
           <h3 className="text-lg font-semibold text-black mb-3">
             Follow Us
@@ -82,7 +82,7 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* Bottom */}
+      
       <div className="border-t">
         <div className="max-w-7xl mx-auto px-4 py-4 text-center text-xs text-gray-500">
           © {new Date().getFullYear()} WhatBytes. All rights reserved.

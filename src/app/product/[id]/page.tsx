@@ -39,7 +39,7 @@ export default function ProductDetailPage() {
   return (
     <div className="max-w-6xl mx-auto px-4 py-10">
       
-      {/* Back Button */}
+      
       <Button
         variant="outline"
         className="mb-6"
@@ -48,28 +48,28 @@ export default function ProductDetailPage() {
         ← Back to Home
       </Button>
 
-      {/* Layout */}
+      
       <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-start">
         
-        {/* Image */}
+        
         <div className="bg-white border rounded-xl p-6 flex justify-center">
           <Image
             src={product.image}
             alt={product.title}
             width={500}
             height={500}
-            className="rounded-lg object-contain max-h-[400px] w-full"
+            className="rounded-lg object-contain max-h-100 w-full"
           />
         </div>
 
-        {/* Info */}
+        
         <div className="flex flex-col">
           
           <h1 className="text-2xl md:text-3xl font-bold text-gray-900">
             {product.title}
           </h1>
 
-          {/* Rating */}
+          
           <div className="mt-2 flex items-center gap-2">
             <StarRating rating={product.rating} />
             <span className="text-sm text-gray-500">
@@ -77,22 +77,22 @@ export default function ProductDetailPage() {
             </span>
           </div>
 
-          {/* Description */}
+         
           <p className="text-gray-600 mt-4 text-sm md:text-base leading-relaxed">
             {product.description}
           </p>
 
-          {/* Price */}
+         
           <p className="text-2xl font-semibold mt-6 text-black">
             ₹{product.price.toLocaleString()}
           </p>
 
-          {/* Category */}
+          
           <p className="text-sm text-gray-500 mt-2 capitalize">
             Category: {product.category}
           </p>
 
-          {/* Quantity */}
+         
           <div className="flex items-center gap-3 mt-5">
             <Button size="sm" variant="outline" onClick={decrease}>
               <Minus className="w-4 h-4" />
@@ -107,7 +107,7 @@ export default function ProductDetailPage() {
             </Button>
           </div>
 
-          {/* Add to Cart */}
+          
           <Button
             className="mt-6 w-full md:w-1/2 bg-black text-white hover:bg-gray-900 transition"
             onClick={() =>
@@ -123,7 +123,7 @@ export default function ProductDetailPage() {
         </div>
       </div>
 
-      {/* Reviews */}
+      
       <div className="mt-12">
         <Reviews />
       </div>

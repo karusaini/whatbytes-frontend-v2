@@ -24,7 +24,7 @@ export default function ProductCard({ product }: any) {
         href={`/product/${product.id}`}
         className="flex flex-col items-center text-center flex-1"
       >
-        {/* IMAGE */}
+        
         <div className="relative w-full h-56 flex items-center justify-center overflow-hidden rounded-md">
           <Image
             src={product.image}
@@ -34,28 +34,28 @@ export default function ProductCard({ product }: any) {
           />
         </div>
 
-        {/* TITLE */}
+        
         <h3 className="mt-4 font-medium text-sm line-clamp-2 text-gray-900">
           {product.title}
         </h3>
 
-        {/* RATING */}
+       
         <div className="mt-2">
           <StarRating rating={product.rating} />
         </div>
 
-        {/* DESCRIPTION */}
+        
         <p className="text-xs text-gray-500 mt-2 line-clamp-2">
           {product.description}
         </p>
       </Link>
 
-      {/* PRICE */}
+      
       <p className="mt-4 font-semibold text-lg text-center text-gray-900">
         ₹{product.price.toLocaleString()}
       </p>
 
-      {/* BUTTON */}
+      
       <Button
         className="w-full mt-3 rounded-lg bg-black hover:bg-gray-800 text-white transition cursor-pointer"
         onClick={() => addToCart({ ...product, quantity: 1 })}

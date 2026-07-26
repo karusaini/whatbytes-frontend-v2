@@ -20,7 +20,7 @@ export default function CartPage() {
   return (
     <div className="max-w-6xl mx-auto px-4 py-10">
       
-      {/* BACK */}
+      
       <Link
         href="/"
         className="inline-flex items-center gap-2 text-sm text-gray-600 hover:text-black mb-6 transition"
@@ -29,7 +29,7 @@ export default function CartPage() {
         Continue Shopping
       </Link>
 
-      {/* TITLE */}
+      
       <h1 className="text-2xl font-bold mb-6 text-center md:text-left">
         Your Cart
       </h1>
@@ -46,7 +46,7 @@ export default function CartPage() {
       ) : (
         <div className="flex flex-col md:grid md:grid-cols-[1fr_320px] gap-6">
           
-          {/* ITEMS */}
+          
           <div className="space-y-4">
             {cartItems.map((item) => (
               <CartItem
@@ -58,7 +58,7 @@ export default function CartPage() {
             ))}
           </div>
 
-          {/* SUMMARY */}
+          
           <div className="border rounded-xl p-5 bg-white shadow-sm w-full max-w-md mx-auto md:mx-0">
             <h2 className="font-semibold text-lg mb-4 text-center md:text-left">
               Order Summary
