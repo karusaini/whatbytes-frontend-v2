@@ -5,10 +5,10 @@ A modern and responsive product listing web app built using **Next.js 16**, **Ta
 ---
 
 ##  Live Demo
-https://whatbytes-frontend-assignment-drab.vercel.app
+https://whatbytes-frontend-v2.vercel.app
 
 ##  Github repo
- https://github.com/karusaini/whatbytes-frontend-assignment
+ https://github.com/karusaini/whatbytes-frontend-v2
 
 ---
 
@@ -69,7 +69,7 @@ src/
 
 ```bash
 # Clone repo
-git clone https://github.com/karusaini/whatbytes-frontend-assignment.git
+git clonehttps://github.com/karusaini/whatbytes-frontend-v2.git
 
 # Go to project
 cd your-repo
