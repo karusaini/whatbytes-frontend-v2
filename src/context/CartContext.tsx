@@ -116,4 +116,4 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
   );
 };
 
-export type { CartItem as CartItemType };
+export type { CartItem as CartItemType }; 
